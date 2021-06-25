@@ -140,6 +140,10 @@ abstract class AbstractDecoder
             return (get_resource_type($this->data) == 'gd');
         }
 
+        if (is_object($this->data) && $this->data instanceof \GDImage) {
+            return $this->data instanceof \GDImage;
+        }
+
         return false;
     }
 
